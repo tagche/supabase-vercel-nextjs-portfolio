@@ -12,7 +12,7 @@ export default function OpeningBg() {
         const randomAngle = random(-30, 150)
 
         // const blurs = Gsap.utils.toArray(".blur")
-        const blurs = [...document.querySelectorAll(".blur")]
+        const blurs = Array.from(document.querySelectorAll(".blur"))
         
         blurs.forEach((blur) => {
             Gsap.set(blur, {
