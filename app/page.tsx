@@ -20,27 +20,25 @@ export default function Home() {
     };
 
     const connectSupabaseClient = async() => {
-        const { data: QUIZ } = await supabase.from('nextjs-quiz')
+        const { data: QUIZ } = await supabase.from('portfolio-question')
             .select('*')
             .order('id', { ascending: true })
-        const { data: DB, error } = await supabase.from('nextjs-quiz-choices')
+        const { data: DB, error } = await supabase.from('portfolio-question-choices')
             .select('*')
-
+        
+        console.log(JSON.stringify(QUIZ));
+        console.log(JSON.stringify(DB));
+        
         return(
-            // <Container QUIZ={QUIZ} DB={DB}></Container>
             <>
-                <p>接続成功</p>
-                <pre>
-                    {JSON.stringify(QUIZ)}
-                    {JSON.stringify(DB)}
-                </pre>
+                <Container QUIZ={QUIZ} DB={DB}></Container>
             </>
         )
     }
 
     return(
         <main className="flex flex-col items-center justify-between p-24">
-            {/* <OpeningBg></OpeningBg> */}
+            <OpeningBg></OpeningBg>
             {checkSupabaseClient() ? connectSupabaseClient() : <p>接続エラー</p>}
         </main>
     )
