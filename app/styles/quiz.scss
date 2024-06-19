@@ -110,12 +110,8 @@ header {
         opacity: 0;
         margin-bottom: 0;
         margin-top: 0.8em;
-    }
-
-    &-guide {
-        font-size: vw(32);
         @include media(tablet){
-            font-size: vw(18);
+            margin-top: 0.5em;
         }
     }
 
@@ -139,9 +135,8 @@ header {
         padding: vw(60);
         min-height: 60vh;
         @include media(tablet){
-            padding: vw(20);
-            max-height: 47vh;
-            height: 40vw;
+            padding: vw(20) vw(20) vw(100) vw(20);
+            min-height: 40vh;
         }
         align-items: center;
         transition: opacity .3s;
@@ -149,7 +144,7 @@ header {
         border: 1px solid #efefef;
 
         h1 {
-            font-size: vw(64);
+            font-size: vw(56);
             @include media(tablet){
                 font-size: vw(32);
             }
@@ -160,9 +155,9 @@ header {
         position: absolute;
         right: vw(20);
 
-        font-size: vw(50);
+        font-size: vw(30);
         @include media(tablet){
-            padding: vw(30);
+            padding: vw(20);
         }
         font-weight: 600;
         color: #aaa;
