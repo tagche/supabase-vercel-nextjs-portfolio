@@ -117,7 +117,8 @@ header {
 
     &-dropguide {
         color: #a6a6a6;
-        font-size: vw(48);
+        font-size: vw(60);
+        margin-top: vw(30);
         @include media(tablet){
             font-size: vw(26);
         }
@@ -133,7 +134,7 @@ header {
     .finishBox {
         background: rgba(255, 255, 255, .7);
         padding: vw(60);
-        min-height: 60vh;
+        min-height: 55vh;
         @include media(tablet){
             padding: vw(20) vw(20) vw(100) vw(20);
             min-height: 40vh;
@@ -155,12 +156,12 @@ header {
         position: absolute;
         right: vw(20);
 
-        font-size: vw(30);
+        font-size: vw(48);
         @include media(tablet){
-            padding: vw(20);
+            font-size: vw(30);
         }
         font-weight: 600;
-        color: #aaa;
+        color: #bbb;
     }
 
     .answerBtnWrap {
