@@ -1,0 +1,20 @@
+@import "_foundation";
+
+$viewport: 1240;
+
+$bpSet: (
+    "tablet": "screen and (min-width: 768px)",
+    "pc": "screen and (min-width: 960px)",
+    "wide": "screen and (min-width: 1240px)",
+) !default;
+
+
+@mixin media($bp) {
+    @media #{map-get($bpSet, $bp)} {
+        @content;
+    }
+}
+
+@function vw($num, $width: $viewport) {
+    @return (1vw * $num / $width * 100);
+}

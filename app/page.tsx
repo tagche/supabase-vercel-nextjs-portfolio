@@ -26,13 +26,8 @@ export default function Home() {
         const { data: DB, error } = await supabase.from('portfolio-question-choices')
             .select('*')
         
-        console.log(JSON.stringify(QUIZ));
-        console.log(JSON.stringify(DB));
-        
         return(
-            <>
-                <Container QUIZ={QUIZ} DB={DB}></Container>
-            </>
+            <Container QUIZ={QUIZ} DB={DB}></Container>
         )
     }
 

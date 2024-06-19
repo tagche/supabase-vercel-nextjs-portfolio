@@ -1,0 +1,34 @@
+:root {
+    --color-key: #A5EBDC;
+    --color-accent: #BDB5E4;
+    --color-1: #FF97C3;
+    --color-2: #A3FFF5;
+    --color-3: #CDC2FF;
+    --color-4: #FAFFBE;
+    --blur-1-size: clamp(100px, 30vw, 40vw);
+    --blur-2-size: clamp(300px, 50vw, 50vw);
+    --blur-3-size: clamp(200px, 35vw, 35vw);
+    --blur-4-size: clamp(200px, 30vw, 30vw);
+    --blur-amount: clamp(40px, 5vw, 90px);
+}
+
+body {
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+
+main {
+    text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: .3em 0;
+}
