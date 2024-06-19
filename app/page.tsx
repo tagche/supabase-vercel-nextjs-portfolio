@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import supabase from '@/utils/supabase'
-// import OpeningBg from './components/openingBg';
-// import Container from "./components";
+import OpeningBg from './components/openingBg';
+import Container from "./components";
 
 export const metadata: Metadata = {
     title: "Frontend Engineer Leo's Portfolio - Supabase(BaaS) & React",
