@@ -319,9 +319,9 @@ header {
         &Key,
         &Accent{
             color: #fff;
-            font-size: vw(36);
+            font-size: vw(44);
             @include media(tablet){
-                font-size: vw(18);
+                font-size: vw(24);
             }
             font-weight: 700;
             line-height: 1;

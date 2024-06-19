@@ -16,7 +16,7 @@ export default function FinishPage(){
                 <h1>ありがとうございました！</h1>
                 <p className="finishMsg">最後までお付き合いくださりありがとうございました。<br />
                 ソースコードは下記にて公開しています。</p>
-                <p><a className="btnAccent" href="https://github.com/tagche/supabase-nextjs-portfolio" target="_blank">GitHubを見る</a></p>
+                <p><a className="btnAccent" href="https://github.com/tagche/supabase-vercel-nextjs-portfolio" target="_blank">GitHubを見る</a></p>
 
                 <article className="skillBox">
                 <h2>Skills</h2>
