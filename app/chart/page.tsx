@@ -1,16 +1,18 @@
 "use client"
 
 import * as React from 'react'
-import { useEffect } from 'react'
+import { useState } from 'react'
 import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import ToggleButton from '@mui/material/ToggleButton'
 import { BarChart } from '@mui/x-charts/BarChart'
-import { LineChart } from '@mui/x-charts/LineChart'
-import Navi from "../components/navi";
+import { LineChart, lineElementClasses, markElementClasses } from '@mui/x-charts/LineChart'
+import Navi from "../components/navi"
 import BgMotion from '../components/bgMotion'
 import OpeningAnim from '../top/openingAnim'
+import ChartTable from './table'
+
 
 const colors = ['#FF97C3', '#A5EBDC', '#CDC2FF']
 const colorsLite = ['#FFC6EE', '#c5ffff', '#f5e8ff']
@@ -18,9 +20,9 @@ const colorsLite = ['#FFC6EE', '#c5ffff', '#f5e8ff']
 const barChartsParams = {
     // 英数国理社
     series: [
-        { data: [80, 75, 91, 65, 52], label: 'Aさん' },
-        { data: [92, 85, 55, 72, 38], label: 'Bさん' },
-        { data: [60, 70, 95, 60, 80], label: 'Cさん' },
+        { id: 1, data: [80, 75, 91, 65, 52], label: 'Aさん' },
+        { id: 2, data: [92, 85, 55, 72, 38], label: 'Bさん' },
+        { id: 3, data: [60, 70, 95, 60, 80], label: 'Cさん' },
     ],
     height: 400,
 }
@@ -121,26 +123,32 @@ const lineChartsParams = {
             label: 'Open Price',
             data: openPrice,
             showMark: false,
+            id: 'open'
         },
         {
             label: 'High Price',
             data: highPrice,
             showMark: false,
+            id: 'high'
         },
         {
             label: 'Low Price',
             data: lowPrice,
             showMark: false,
+            id: 'low'
         },
 
     ],
     height: 400,
 }
 
+
 const dateFormatter = (date: Date) => (date.getMonth() + 1).toString() + "/" + date.getDate().toString()
 
 export default function ElementHighlights() {
-    const [chartType, setChartType] = React.useState('line')
+    const [chartType, setChartType] = useState('bar')
+    const [stateOpenPrice, setOpenPrice] = useState(null)
+    const [stateBarData, setBarData] = useState(barChartsParams)
 
     const handleChartType = (event: any, newChartType: string) => {
         if (newChartType !== null) {
@@ -177,9 +185,9 @@ export default function ElementHighlights() {
                                 aria-label="chart type"
                                 style={btnGroupStyle}
                             >
-                                {['line', 'bar'].map((type) => (
-                                    <ToggleButton key={type} value={type} aria-label="left aligned" style={{width: '120px'}}>
-                                        {type == "line" ? "線グラフ": "棒グラフ"}
+                                {['bar', 'line'].map((type) => (
+                                    <ToggleButton key={type} value={type} aria-label="left aligned" style={{ width: '120px' }}>
+                                        {type == "line" ? "線グラフ" : "棒グラフ"}
                                     </ToggleButton>
                                 ))}
                             </ToggleButtonGroup>
@@ -194,14 +202,31 @@ export default function ElementHighlights() {
                                         data: dates,
                                         label: 'Date',
                                         scaleType: 'time',
-                                        valueFormatter: dateFormatter
+                                        valueFormatter: dateFormatter,
                                     }]}
                                     series={lineChartsParams.series.map((series, i) => ({
                                         ...series,
-                                        // area: (i == 2 ? true : false),
-                                        area: true,
+                                        area: (i == 2 ? true : false),
                                         color: colors[i],
                                     }))}
+                                    skipAnimation={false}
+                                    grid={{ vertical: true, horizontal: true }}
+                                    
+                                    sx={{
+                                        [`.${lineElementClasses.root}, .${markElementClasses.root}`]: {
+                                          strokeWidth: 2,
+                                          transition: 'none',
+                                          transform: 'none'
+                                        },
+                                        '.MuiLineElement-series-open': {
+                                          strokeDasharray: '10 4',
+                                          strokeWidth: 2.5,
+                                        },
+                                        '.MuiLineElement-series-high': {
+                                          strokeDasharray: '10 4',
+                                          strokeWidth: 2.5,
+                                        },
+                                      }}
                                 />
                             )}
 
@@ -209,15 +234,18 @@ export default function ElementHighlights() {
                                 <BarChart
                                     {...barChartsParams}
                                     xAxis={[{
-                                        data: ["英語","数学","国語","理科","社会"],
+                                        data: ["国語", "数学", "英語", "理科", "社会"],
                                         scaleType: 'band',
                                     }]}
                                     series={barChartsParams.series.map((series, i) => ({
                                         ...series,
                                         color: colorsLite[i],
                                     }))}
+                                    grid={{ vertical: false, horizontal: true }}
                                 />
                             )}
+
+                            <ChartTable series={barChartsParams.series}></ChartTable>
                         </Box>
                     </Stack>
                 </div>
