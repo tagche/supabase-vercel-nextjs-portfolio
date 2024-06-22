@@ -1,19 +1,29 @@
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
-import ToggleButton from '@mui/material/ToggleButton'
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 
 export default function Navi() {
+    const naviStyle = {
+        position: "absolute",
+        top: "1.5vw",
+        right: "2vw",
+        zIndex: 10
+    } as const
+
+    const btnStyle = {
+        color: "#BDB5E4",
+        borderColor: "#BDB5E4",
+        background: "rgba(255,255,255,.6)"
+    }
+
     return (
-        <ToggleButtonGroup
-            exclusive
-            // onChange={handleChartType}
-            aria-label="chart type"
-        >
-            <ToggleButton key="top" value="Top" aria-label="left aligned" style={{ width: '120px' }}>
+        <ButtonGroup variant="outlined" style={naviStyle}>
+            <Button href="/" style={btnStyle}>
                 Top
-            </ToggleButton>
-            <ToggleButton key="chart" value="Chart" aria-label="left aligned" style={{ width: '120px' }}>
-            Chart
-            </ToggleButton>
-        </ToggleButtonGroup>
+            </Button>
+            <Button href="/chart" style={btnStyle}>
+                Example Charts 
+            </Button>
+        </ButtonGroup>
+
     )
 }

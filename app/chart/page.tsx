@@ -1,21 +1,26 @@
 "use client"
 
 import * as React from 'react'
+import { useEffect } from 'react'
 import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 import ToggleButton from '@mui/material/ToggleButton'
 import { BarChart } from '@mui/x-charts/BarChart'
 import { LineChart } from '@mui/x-charts/LineChart'
+import Navi from "../components/navi";
 import BgMotion from '../components/bgMotion'
 import OpeningAnim from '../top/openingAnim'
 
 const colors = ['#FF97C3', '#A5EBDC', '#CDC2FF']
+const colorsLite = ['#FFC6EE', '#c5ffff', '#f5e8ff']
+
 const barChartsParams = {
+    // 英数国理社
     series: [
-        { data: [3, 4, 1, 6, 5], label: 'A' },
-        { data: [4, 3, 1, 5, 8], label: 'B' },
-        { data: [4, 2, 5, 4, 1], label: 'C' },
+        { data: [80, 75, 91, 65, 52], label: 'Aさん' },
+        { data: [92, 85, 55, 72, 38], label: 'Bさん' },
+        { data: [60, 70, 95, 60, 80], label: 'Cさん' },
     ],
     height: 400,
 }
@@ -113,17 +118,17 @@ const lowPrice = [
 const lineChartsParams = {
     series: [
         {
-            label: 'Price A',
+            label: 'Open Price',
             data: openPrice,
             showMark: false,
         },
         {
-            label: 'Price B',
+            label: 'High Price',
             data: highPrice,
             showMark: false,
         },
         {
-            label: 'Price C',
+            label: 'Low Price',
             data: lowPrice,
             showMark: false,
         },
@@ -143,12 +148,21 @@ export default function ElementHighlights() {
         }
     }
 
+    const btnGroupStyle = {
+        position: "absolute",
+        top: "2vw",
+        right: "2vw",
+        zIndex: 10
+    } as const
+
     return (
         <main className="flex flex-col items-center justify-between p-24">
+            <Navi />
             <BgMotion></BgMotion>
             <OpeningAnim></OpeningAnim>
             <section className='quizBox'>
-                <div className="finishBox">
+                <div className="whiteBox">
+                    <h2>Sample Charts</h2>
                     <Stack
                         direction={{ xs: 'column', xl: 'row' }}
                         spacing={1}
@@ -159,12 +173,13 @@ export default function ElementHighlights() {
                                 value={chartType}
                                 exclusive
                                 onChange={handleChartType}
+                                size="small"
                                 aria-label="chart type"
-                                // fullWidth
+                                style={btnGroupStyle}
                             >
                                 {['line', 'bar'].map((type) => (
                                     <ToggleButton key={type} value={type} aria-label="left aligned" style={{width: '120px'}}>
-                                        {type}
+                                        {type == "line" ? "線グラフ": "棒グラフ"}
                                     </ToggleButton>
                                 ))}
                             </ToggleButtonGroup>
@@ -172,26 +187,34 @@ export default function ElementHighlights() {
                             {chartType === 'line' && (
                                 <LineChart
                                     {...lineChartsParams}
+                                    yAxis={[{
+                                        label: 'Stock chart ($USD)',
+                                    }]}
                                     xAxis={[{
                                         data: dates,
+                                        label: 'Date',
                                         scaleType: 'time',
                                         valueFormatter: dateFormatter
                                     }]}
                                     series={lineChartsParams.series.map((series, i) => ({
                                         ...series,
-                                        area: (i == 2 ? true : false),
+                                        // area: (i == 2 ? true : false),
+                                        area: true,
                                         color: colors[i],
-                                    }
-
-                                    ))}
+                                    }))}
                                 />
                             )}
+
                             {chartType === 'bar' && (
                                 <BarChart
                                     {...barChartsParams}
+                                    xAxis={[{
+                                        data: ["英語","数学","国語","理科","社会"],
+                                        scaleType: 'band',
+                                    }]}
                                     series={barChartsParams.series.map((series, i) => ({
                                         ...series,
-                                        color: colors[i],
+                                        color: colorsLite[i],
                                     }))}
                                 />
                             )}

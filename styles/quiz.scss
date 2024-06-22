@@ -130,14 +130,11 @@ header {
     margin: vw(0) vw(50) 0;
     position: relative;
 
-    .dropBox,
-    .finishBox {
+    .whiteBox {
         background: rgba(255, 255, 255, .7);
-        padding: vw(60);
-        min-height: 55vh;
+        padding: vw(60) vw(60) vw(30) vw(60);
         @include media(tablet){
-            padding: vw(20) vw(20) vw(100) vw(20);
-            min-height: 40vh;
+            padding: vw(20) vw(20) vw(50) vw(20);
         }
         align-items: center;
         transition: opacity .3s;
@@ -149,6 +146,16 @@ header {
             @include media(tablet){
                 font-size: vw(32);
             }
+        }
+    }
+
+    .dropBox{
+        @extend .whiteBox;
+        min-height: 55vh;
+        padding: vw(60);
+        @include media(tablet){
+            min-height: 40vh;
+            padding: vw(20) vw(20) vw(100) vw(20);
         }
     }
 
@@ -272,14 +279,11 @@ header {
         }
     }
 
-    .finishBox {
+    .whiteBox {
         max-height: none;
         height: auto;
-        margin-bottom: vw(50);
+        margin-bottom: vw(0);
 
-        .finishMsg{
-            margin-bottom: vw(20);
-        }
         .skillBox{
             margin: vw(80) 0 vw(20);
             @include media(tablet){

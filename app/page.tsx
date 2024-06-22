@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import supabase from '@/utils/supabase'
-import Link from 'next/link'
+import Navi from "./components/navi";
 import BgMotion from './components/bgMotion';
 import Container from "./top/page";
 
@@ -28,7 +28,8 @@ export default function Home() {
             .select('*')
         
         return(
-            <Container QUIZ={QUIZ} DB={DB}></Container>
+            // <Container QUIZ={QUIZ} DB={DB}></Container>
+            <p>error</p>
         )
     }
 
@@ -36,7 +37,7 @@ export default function Home() {
         <main className="flex flex-col items-center justify-between p-24">
             <BgMotion></BgMotion>
             <div className='container'>
-                <Link href="/chart"><p>リンクテスト</p></Link>
+                <Navi />
                 {checkSupabaseClient() ? connectSupabaseClient() : <p>接続エラー</p>}
             </div>
         </main>

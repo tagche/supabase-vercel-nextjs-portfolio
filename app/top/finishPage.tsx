@@ -12,7 +12,7 @@ export default function FinishPage(){
 
     return(
         <section className='quizBox'>
-            <div className="finishBox">
+            <div className="whiteBox">
                 <h1>ありがとうございました！</h1>
                 <p className="finishMsg">最後までお付き合いくださりありがとうございました。<br />
                 ソースコードは下記にて公開しています。</p>
