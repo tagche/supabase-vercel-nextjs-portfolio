@@ -30,11 +30,10 @@ export default function Container(props: PropsType){
     })
 
     return(
-        <div className='container'>
+        <>
             <OpeningAnim></OpeningAnim>
-            {/* <ThreeMotion></ThreeMotion> */}
             { loading == "finish" && renderQuiz() }
             { QUIZ && quiz >= QUIZ.length && <FinishPage></FinishPage> }
-        </div>
+        </>
     )
 }

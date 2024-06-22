@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import supabase from '@/utils/supabase'
+import Link from 'next/link'
 import BgMotion from './components/bgMotion';
-import Container from "./top";
+import Container from "./top/page";
 
 export const metadata: Metadata = {
     title: "Frontend Engineer Leo's Portfolio - Supabase(BaaS) & React",
@@ -34,7 +35,10 @@ export default function Home() {
     return(
         <main className="flex flex-col items-center justify-between p-24">
             <BgMotion></BgMotion>
-            {checkSupabaseClient() ? connectSupabaseClient() : <p>接続エラー</p>}
+            <div className='container'>
+                <Link href="/chart"><p>リンクテスト</p></Link>
+                {checkSupabaseClient() ? connectSupabaseClient() : <p>接続エラー</p>}
+            </div>
         </main>
     )
 }
