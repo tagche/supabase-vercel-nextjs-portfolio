@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { loadingState, quizState } from '../atoms/atoms';
+import { loadingState, quizState } from '../../atoms/atoms';
 
 export default function FinishPage(){
     const [loading, setLoading] = useRecoilState(loadingState);

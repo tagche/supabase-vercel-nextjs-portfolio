@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react'
 import Gsap, { random } from "gsap"
 
-export default function OpeningBg() {
+export default function BgMotion() {
     useEffect(() => {
         const randomX = random(-400, 400)
         const randomY = random(-200, 200)

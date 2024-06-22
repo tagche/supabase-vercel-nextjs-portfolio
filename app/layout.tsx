@@ -2,7 +2,7 @@
 
 import { Noto_Sans_JP } from "next/font/google";
 import Footer from "./components/footer";
-import "./styles/quiz.scss";
+import "../styles/quiz.scss";
 import { RecoilRoot } from "recoil";
 
 const noto = Noto_Sans_JP ({

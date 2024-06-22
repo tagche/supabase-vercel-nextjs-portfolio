@@ -1,7 +1,7 @@
 'use client';
 
 import { useRecoilState } from "recoil";
-import { loadingState, quizState } from '../atoms/atoms';
+import { loadingState, quizState } from '../../atoms/atoms';
 import QuizPanel from './quizPanel';
 import OpeningAnim from './openingAnim';
 import FinishPage from "./finishPage";

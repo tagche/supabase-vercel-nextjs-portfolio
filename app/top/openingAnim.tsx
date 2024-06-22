@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { useRecoilState } from "recoil";
-import { loadingState } from '../atoms/atoms';
+import { loadingState } from '../../atoms/atoms';
 import Gsap from "gsap";
 
 export default function OpeningAnim() {

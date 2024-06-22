@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRecoilState } from "recoil";
-import { quizState } from '../atoms/atoms';
+import { quizState } from '../../atoms/atoms';
 import { DndContext, DragEndEvent } from '@dnd-kit/core';
-import { Droppable, Draggable } from './dnd';
+import { Droppable, Draggable } from '../components/dnd';
 import Gsap from "gsap";
-import { nl2br } from '../util/util';
+import { nl2br } from '../../utils/helpers';
 
 interface propsType{
     QUIZ: any
