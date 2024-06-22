@@ -12,7 +12,8 @@ export default function Navi() {
     const btnStyle = {
         color: "#BDB5E4",
         borderColor: "#BDB5E4",
-        background: "rgba(255,255,255,.6)"
+        background: "rgba(255,255,255,.6)",
+        lineHeight: 1.2
     }
 
     return (
@@ -21,7 +22,7 @@ export default function Navi() {
                 Top
             </Button>
             <Button href="/chart" style={btnStyle}>
-                Example Charts 
+                Charts & Tables<br />Example
             </Button>
         </ButtonGroup>
 

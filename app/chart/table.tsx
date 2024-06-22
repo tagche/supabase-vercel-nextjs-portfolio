@@ -1,29 +1,23 @@
 import * as React from 'react'
-import { DataGrid, GridColDef, GridEditModes } from '@mui/x-data-grid'
-import TextField from '@mui/material/TextField'
+import { useRecoilValue } from 'recoil'
+import { DataGrid, GridColDef, GridRowsProp } from '@mui/x-data-grid'
+import { barChartsParamsAtom, curriculumStateAtom } from '@/atoms/atoms'
 
-const columns: GridColDef[] = [
-    { field: 'label', headerName: '名前', width: 150 },
-    { field: "type1", headerName: '国語', width: 100 },
-    { field: 'type2', headerName: '数学', width: 100 },
-    { field: 'type3', headerName: '英語', width: 100 },
-    { field: 'type4', headerName: '理科', width: 100 },
-    { field: 'type5', headerName: '社会', width: 100 },
-]
-const setInputElem = (val) => {
-    return (
-        <TextField
-            label="Size"
-            id="outlined-size-small"
-            defaultValue={val}
-            size="small"
-        />
-    )
-}
+export default function ChartTable() {
+    const barChartsParams = useRecoilValue(barChartsParamsAtom);
+    const curriculumState = useRecoilValue(curriculumStateAtom);
 
-export default function ChartTable(props: any) {
-    let splitData = new Array
-    props.series.map((e: any) => {
+    const columns: GridColDef[] = [
+        { field: 'label', headerName: '名前', width: 150, editable: true },
+        { field: "type1", headerName: curriculumState[0], width: 100, editable: true, type: 'number' },
+        { field: 'type2', headerName: curriculumState[1], width: 100, editable: true, type: 'number' },
+        { field: 'type3', headerName: curriculumState[2], width: 100, editable: true, type: 'number' },
+        { field: 'type4', headerName: curriculumState[3], width: 100, editable: true, type: 'number' },
+        { field: 'type5', headerName: curriculumState[4], width: 100, editable: true, type: 'number' },
+    ]
+
+    let rowData = new Array
+    barChartsParams.series.map((e: any) => {
         const data = e.data.toString().split(',')
         const seriesRow = {
             id: e.id,
@@ -34,28 +28,22 @@ export default function ChartTable(props: any) {
             type4: data[3],
             type5: data[4],
         }
-        splitData.push(seriesRow)
+        rowData.push(seriesRow)
     })
 
-    // const inputRow = {
-    //     label: elem
-    // }
-    //   splitData.push(inputRow)
+    const handleUpdate = () => {
+
+    }
 
     return (
         <div style={{ height: 'auto', width: '660px', margin: "auto" }}>
-            <DataGrid
-                rows={splitData}
-                columns={columns}
-                // initialState={{
-                //     pagination: {
-                //         paginationModel: { page: 0, pageSize: 5 },
-                //     },
-                // }}
-                // pageSizeOptions={[5, 10]}
 
+            <DataGrid
+                rows={rowData}
+                columns={columns}
                 hideFooter={true}
-                editMode='cell'
+                isCellEditable={(params) => true}
+                onCellEditStop={handleUpdate}
             />
         </div>
     )
