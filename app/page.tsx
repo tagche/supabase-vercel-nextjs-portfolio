@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import supabase from '@/utils/supabase'
 import Navi from "./components/navi";
 import BgMotion from './components/bgMotion';
-import Container from "./top/page";
+import Container from "./top";
 
 export const metadata: Metadata = {
     title: "Frontend Engineer Leo's Portfolio - Supabase(BaaS) & React",
@@ -28,8 +28,7 @@ export default function Home() {
             .select('*')
         
         return(
-            // <Container QUIZ={QUIZ} DB={DB}></Container>
-            <p>error</p>
+            <Container QUIZ={QUIZ} DB={DB}></Container>
         )
     }
 
