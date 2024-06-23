@@ -43,7 +43,7 @@ export default function ElementHighlights() {
             <OpeningAnim></OpeningAnim>
             <section className='quizBox'>
                 <div className="whiteBox">
-                    <h2>Sample Charts</h2>
+                    <h2>Charts & Tabels Example</h2>
                     <Stack
                         direction={{ xs: 'column', xl: 'row' }}
                         spacing={1}
@@ -99,7 +99,7 @@ export default function ElementHighlights() {
                                         },
                                       }}
                                 />
-                            )}
+                            )} 
 
                             {chartType === 'bar' && (
                                 <BarChart
