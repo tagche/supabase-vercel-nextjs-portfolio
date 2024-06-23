@@ -1,5 +1,6 @@
 import { useRecoilState } from "recoil";
 import { loadingState, quizState } from '../../atoms/atoms';
+import Link from "next/link"
 
 export default function FinishPage(){
     const [loading, setLoading] = useRecoilState(loadingState);
@@ -19,6 +20,12 @@ export default function FinishPage(){
                 <p><a className="btnAccent" href="https://github.com/tagche/supabase-vercel-nextjs-portfolio" target="_blank">GitHubを見る</a></p>
 
                 <article className="skillBox">
+                    <p>チャートのサンプルページへ。<br />
+                        データは編集でき、リアルタイムでチャートへ反映されます。</p>
+                    <Link href='/chart' className='btnAccent'>Charts & Tables Example</Link>
+                </article>
+                
+                <article className="skillBox">
                 <h2>Skills</h2>
                     <dl>
                         <dt>Front-End</dt>
@@ -29,7 +36,7 @@ export default function FinishPage(){
                         <dd>Webディレクション / Web開発ディレクション</dd>
                     </dl>
                 </article>
-                <button className="btnAccent btnSmall" onClick={handleTop}>もう一度はじめから</button>
+                <button className="btnAccent" onClick={handleTop}>もう一度はじめから</button>
             </div>
         </section>
     )

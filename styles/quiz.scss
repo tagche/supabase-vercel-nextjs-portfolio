@@ -67,10 +67,17 @@ h1 {
 
 h2 {
     font-weight: 900;
-    font-size: vw(24);
+    font-size: vw(40);
+    @include media(pc){
+        font-size: vw(24);
+    }
 }
 
 p {
+    font-size: vw(28);
+    @include media(pc){
+        font-size: vw(16);
+    }
     font-weight: normal;
 }
 
@@ -328,11 +335,11 @@ header {
         &Key,
         &Accent{
             color: #fff;
-            font-size: vw(44);
+            font-size: vw(28);
             @include media(tablet){
-                font-size: vw(24);
+                font-size: vw(20);
             }
-            font-weight: 700;
+            font-weight: 500;
             line-height: 1;
             text-decoration: none;
             cursor: pointer;
@@ -345,9 +352,6 @@ header {
             border: 0;
             border-radius: 500px;
             background: var(--color-key);
-            &.btnSmall{
-                transform: scale(.85);
-            }
         }
         &Accent{
             background: var(--color-accent);

@@ -7,6 +7,7 @@ import { DndContext, DragEndEvent } from '@dnd-kit/core';
 import { Droppable, Draggable } from '../components/dnd';
 import Gsap from "gsap";
 import { nl2br } from '../../utils/helpers';
+import Link from 'next/link'
 
 interface propsType{
     QUIZ: any
