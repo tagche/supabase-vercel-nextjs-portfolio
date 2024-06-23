@@ -41,28 +41,36 @@ export const barChartsParamsSelector = selector<barChartTypes | any>({
         let filterRows = new Object
         let newSetRows = new Array
 
+        // 更新する1行データを生成
         rows.series.map((e: barChartSeriesTypes) => {
             if(e.id !== newValue.id) return false
 
-            // 更新する1行データを生成
             if(newValue.key === 'label'){
+                // label
                 filterRows = {...e, [newValue.key]:newValue.value}
             }else{
-                console.log("saas");
+                // data[]
+                const num = Number(newValue.key.charAt(newValue.key.length -1)) - 1;
+                let result = new Array
+                e.data.map((el, i) => {
+                    if(i == num) result.push(newValue.value)
+                    else result.push(el)
+                })
+                filterRows = {...e, data:result}
             }
         });
         
-        // 更新内容を含めたの全データを生成
+        // 更新内容を含めたseriesデータを生成
         rows.series.map((e: barChartSeriesTypes) => {
             if(e.id === newValue.id) newSetRows.push(filterRows)
             else newSetRows.push(e)
         })
-        
+
+        // 上記seriesを含めた全データを生成
+        rows = {...rows, series:newSetRows}
 
         console.log(rows, newSetRows);
-        rows = {...rows, series:newSetRows}
-        console.log(rows, newSetRows);
-        set((barChartsParamsAtom as any), rows)
+        set(barChartsParamsAtom, rows)
     }
 });
   
