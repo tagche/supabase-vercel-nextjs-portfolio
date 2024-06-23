@@ -13,7 +13,8 @@ export default function Navi() {
         color: "#BDB5E4",
         borderColor: "#BDB5E4",
         background: "rgba(255,255,255,.6)",
-        lineHeight: 1.2
+        lineHeight: 1.2,
+        fontSize: '1vw',
     }
 
     return (

@@ -62,7 +62,7 @@ export default function ChartTable() {
     }, []);
 
     return (
-        <div style={{ width: '430px', margin: "auto", padding: '0 50px 80px', display: 'inline-block' }}>
+        <section className='chartTableBox'>
             <h3>値を編集すると、チャートに反映されます</h3>
             <p>セルをWクリックで値を編集できます。<br />編集したデータはチャートに反映されます。</p>
             <DataGrid
@@ -75,6 +75,6 @@ export default function ChartTable() {
                 }
                 onProcessRowUpdateError={handleProcessRowUpdateError}
             />
-        </div>
+        </section>
     )
 }

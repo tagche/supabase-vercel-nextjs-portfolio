@@ -26,9 +26,9 @@ export default function ElementHighlights() {
             <section className='quizBox'>
                 <div className="whiteBox">
                     <h2 className='headDef'>Charts & Tabels Example</h2>
-                    <div style={{}}>
+                    <div className="chartWrap">
                         <ChartTable></ChartTable>
-                        <Box sx={{ flexGrow: 2, width: '45vw', minWidth: '500px', display: 'inline-block', verticalAlign: 'top' }}>
+                        <Box sx={{width: '100%', minWidth: 'auto', display: 'inline-block', verticalAlign: 'top'}} className="chartBox">
                             <BarChart
                                 {...barChartsParams}
                                 xAxis={[{

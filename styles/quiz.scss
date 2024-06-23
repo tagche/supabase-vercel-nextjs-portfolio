@@ -363,3 +363,26 @@ header {
         
     }
 }
+
+.chartWrap{
+    @include media(wide){
+        display: flex;
+    }
+}
+
+.chartTableBox{
+    width: 430px;
+    max-width: 100%;
+    margin: 0 auto auto;
+    padding: 0 0 vw(30);
+    @include media(tablet){
+        padding: 0 50px 80px;
+    }
+    display: inline-block
+}
+
+
+// MUI Overwrite
+.MuiDataGrid-scrollbar{
+    left: 0;
+}
