@@ -71,12 +71,16 @@ h2 {
     @include media(pc){
         font-size: vw(24);
     }
+
+    &.headDef{
+        margin-bottom: 30px;
+    }
 }
 
 p {
     font-size: vw(28);
     @include media(pc){
-        font-size: vw(16);
+        font-size: 1em;
     }
     font-weight: normal;
 }

@@ -8,12 +8,12 @@ export default function ChartTable() {
     const [barChartsParams, setBarChartsParams] = useRecoilState(barChartsParamsSelector)
 
     const columns: GridColDef[] = [
-        { field: 'label', headerName: '名前', width: 100, editable: true },
-        { field: "type1", headerName: curriculumState[0], width: 80, editable: true, type: 'number' },
-        { field: 'type2', headerName: curriculumState[1], width: 80, editable: true, type: 'number' },
-        { field: 'type3', headerName: curriculumState[2], width: 80, editable: true, type: 'number' },
-        { field: 'type4', headerName: curriculumState[3], width: 80, editable: true, type: 'number' },
-        { field: 'type5', headerName: curriculumState[4], width: 80, editable: true, type: 'number' },
+        { field: 'label', headerName: '名前', width: 70, editable: true },
+        { field: "type1", headerName: curriculumState[0], width: 70, editable: true, type: 'number' },
+        { field: 'type2', headerName: curriculumState[1], width: 70, editable: true, type: 'number' },
+        { field: 'type3', headerName: curriculumState[2], width: 70, editable: true, type: 'number' },
+        { field: 'type4', headerName: curriculumState[3], width: 70, editable: true, type: 'number' },
+        { field: 'type5', headerName: curriculumState[4], width: 70, editable: true, type: 'number' },
     ]
 
     type barChartSeriesTypes = {
@@ -62,7 +62,7 @@ export default function ChartTable() {
     }, []);
 
     return (
-        <div style={{ width: '550px', margin: "auto", padding: '0 50px 80px', display: 'inline-block' }}>
+        <div style={{ width: '430px', margin: "auto", padding: '0 50px 80px', display: 'inline-block' }}>
             <h3>値を編集すると、チャートに反映されます</h3>
             <p>セルをWクリックで値を編集できます。<br />編集したデータはチャートに反映されます。</p>
             <DataGrid

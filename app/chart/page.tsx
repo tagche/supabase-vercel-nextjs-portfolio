@@ -25,10 +25,10 @@ export default function ElementHighlights() {
             <OpeningAnim></OpeningAnim>
             <section className='quizBox'>
                 <div className="whiteBox">
-                    <h2>Charts & Tabels Example</h2>
+                    <h2 className='headDef'>Charts & Tabels Example</h2>
                     <div style={{}}>
                         <ChartTable></ChartTable>
-                        <Box sx={{ flexGrow: 2, width: '40vw', minWidth: '700px', display: 'inline-block', verticalAlign: 'top' }}>
+                        <Box sx={{ flexGrow: 2, width: '45vw', minWidth: '500px', display: 'inline-block', verticalAlign: 'top' }}>
                             <BarChart
                                 {...barChartsParams}
                                 xAxis={[{
