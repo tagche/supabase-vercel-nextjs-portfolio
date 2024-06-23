@@ -42,7 +42,6 @@ export default function ElementHighlights() {
                                 grid={{ vertical: false, horizontal: true }}
                             />
 
-                            <p style={{ marginTop: '30px'}}>マウスオーバーで線グラフが表示されます</p>
                             <LineChart
                                 {...barChartsParams}
                                 yAxis={[{
